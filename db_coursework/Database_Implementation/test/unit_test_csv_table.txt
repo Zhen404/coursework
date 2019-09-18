@@ -1,0 +1,2658 @@
+********************    Starting test_optimizable_1, optimize = False    ********************
+
+
+
+
+Dude. This takes 30 minutes. Trust me.
+
+
+
+
+********************    Starting test_optimizable_2, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ Name: Join(people batting) File: DERIVED 
+Row count: 102815 
+
+
+playerID H AB teamID yearID stint nameLast nameFirst birthCity birthCountry throws
+abercda01 0 4 TRO 1871 1 Abercrombie Frank Fort Towson USA 
+addybo01 32 118 RC1 1871 1 Addy Bob Port Hope CAN L
+allisar01 40 137 CL1 1871 1 Allison Art Philadelphia USA 
+allisdo01 44 133 WS3 1871 1 Allison Doug Philadelphia USA R
+ansonca01 39 120 RC1 1871 1 Anson Cap Marshalltown USA R
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1 Zimmermann Jordan Auburndale USA R
+zimmery01 93 427 WAS 2016 1 Zimmerman Ryan Washington USA R
+zobribe01 142 523 CHN 2016 1 Zobrist Ben Eureka USA R
+zuninmi01 34 164 SEA 2016 1 Zunino Mike Cape Coral USA R
+zychto01 0 0 SEA 2016 1 Zych Tony Monee USA R
+
+
+
+Elapsed time =  0.2756321430206299
+
+
+********************    Complete test_join_optimizable_2    ********************
+
+********************    Starting test_optimizable_3, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Building index for playerID in batting...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ Name: Join(people batting) File: DERIVED 
+Row count: 19 
+
+
+playerID nameLast nameFirst birthCity birthCountry throws H AB teamID yearID stint
+willite01 Williams Ted San Diego USA R 185 565 BOS 1939 1
+willite01 Williams Ted San Diego USA R 193 561 BOS 1940 1
+willite01 Williams Ted San Diego USA R 185 456 BOS 1941 1
+willite01 Williams Ted San Diego USA R 186 522 BOS 1942 1
+willite01 Williams Ted San Diego USA R 176 514 BOS 1946 1
+... ... ... ... ... ...
+willite01 Williams Ted San Diego USA R 138 400 BOS 1956 1
+willite01 Williams Ted San Diego USA R 163 420 BOS 1957 1
+willite01 Williams Ted San Diego USA R 135 411 BOS 1958 1
+willite01 Williams Ted San Diego USA R 69 272 BOS 1959 1
+willite01 Williams Ted San Diego USA R 98 310 BOS 1960 1
+
+
+
+Elapsed time =  0.07350397109985352
+
+
+********************    Complete test_join_optimizable_3    ********************
+
+
+
+
+********************    Starting test_optimizable_4, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Exception=  Neither tables have index related to on_fields, Cannot be improved
+Traceback (most recent call last):
+  File "test_join_performance_1.py", line 495, in <module>
+    test_join_optimizable_4(optimize=True)
+  File "test_join_performance_1.py", line 258, in test_join_optimizable_4
+    join_result = people_tbl.join(batting_tbl,['yearID'], None, optimize=optimize)
+  File "/Users/zhenli/W4111-f18/Projects/HW1-Templates/Python/HW3/CSVTable.py", line 478, in join
+    s += "No table derived"
+UnboundLocalError: local variable 's' referenced before assignment
+Zhens-MacBook-Pro-2:HW3 zhenli$ python test_join_performance_1.py
+
+
+********************    Starting test_optimizable_1, optimize = False    ********************
+
+
+
+
+Dude. This takes 30 minutes. Trust me.
+
+
+
+
+********************    Starting test_optimizable_2, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ Name: Join(people batting) File: DERIVED 
+Row count: 102815 
+
+
+playerID H AB teamID yearID stint nameLast nameFirst birthCity birthCountry throws
+abercda01 0 4 TRO 1871 1 Abercrombie Frank Fort Towson USA 
+addybo01 32 118 RC1 1871 1 Addy Bob Port Hope CAN L
+allisar01 40 137 CL1 1871 1 Allison Art Philadelphia USA 
+allisdo01 44 133 WS3 1871 1 Allison Doug Philadelphia USA R
+ansonca01 39 120 RC1 1871 1 Anson Cap Marshalltown USA R
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1 Zimmermann Jordan Auburndale USA R
+zimmery01 93 427 WAS 2016 1 Zimmerman Ryan Washington USA R
+zobribe01 142 523 CHN 2016 1 Zobrist Ben Eureka USA R
+zuninmi01 34 164 SEA 2016 1 Zunino Mike Cape Coral USA R
+zychto01 0 0 SEA 2016 1 Zych Tony Monee USA R
+
+
+
+Elapsed time =  0.28498101234436035
+
+
+********************    Complete test_join_optimizable_2    ********************
+
+
+
+
+********************    Starting test_optimizable_3, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Building index for playerID in batting...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ Name: Join(people batting) File: DERIVED 
+Row count: 19 
+
+
+playerID nameLast nameFirst birthCity birthCountry throws H AB teamID yearID stint
+willite01 Williams Ted San Diego USA R 185 565 BOS 1939 1
+willite01 Williams Ted San Diego USA R 193 561 BOS 1940 1
+willite01 Williams Ted San Diego USA R 185 456 BOS 1941 1
+willite01 Williams Ted San Diego USA R 186 522 BOS 1942 1
+willite01 Williams Ted San Diego USA R 176 514 BOS 1946 1
+... ... ... ... ... ...
+willite01 Williams Ted San Diego USA R 138 400 BOS 1956 1
+willite01 Williams Ted San Diego USA R 163 420 BOS 1957 1
+willite01 Williams Ted San Diego USA R 135 411 BOS 1958 1
+willite01 Williams Ted San Diego USA R 69 272 BOS 1959 1
+willite01 Williams Ted San Diego USA R 98 310 BOS 1960 1
+
+
+
+Elapsed time =  0.2124190330505371
+
+
+********************    Complete test_join_optimizable_3    ********************
+
+
+
+
+********************    Starting test_optimizable_4, optimize = True    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Building index for playerID in people...
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Exception=  Neither tables have index related to on_fields, Cannot be improved
+Result = 
+ No table derived
+
+
+Elapsed time =  1.71661376953125e-05
+
+
+********************    Complete test_join_optimizable_4    ********************
+
+
+
+
+********************    Starting test_select_no_index_1    ********************
+
+
+People table metadata = 
+ {
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Loaded people table = 
+ Name: people File: ../Data/People.csv 
+Row count: 19370 
+{
+  "definition": {
+    "name": "people",
+    "path": "../Data/People.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameLast",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "nameFirst",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCity",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "birthCountry",
+      "column_type": "text",
+      "not_null": false
+    },
+    {
+      "column_name": "throws",
+      "column_type": "text",
+      "not_null": false
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 19370
+Sample rowsplayerID nameLast nameFirst birthCity birthCountry throws
+aardsda01 Aardsma David Denver USA R
+aaronha01 Aaron Hank Mobile USA R
+aaronto01 Aaron Tommie Mobile USA R
+aasedo01 Aase Don Orange USA R
+abadan01 Abad Andy Palm Beach USA L
+... ... ... ... ... ...
+zupofr01 Zupo Frank San Francisco USA R
+zuvelpa01 Zuvella Paul San Mateo USA R
+zuverge01 Zuverink George Holland USA R
+zwilldu01 Zwilling Dutch St. Louis USA L
+zychto01 Zych Tony Monee USA R
+
+Result = 
+ [{'playerID': 'willite01', 'nameLast': 'Williams', 'nameFirst': 'Ted', 'birthCity': 'San Diego', 'birthCountry': 'USA', 'throws': 'R'}]
+
+
+Elapsed time =  0.010597944259643555
+
+
+********************    Complete test_select_no_index_1    ********************
+
+
+
+
+********************    Starting test_select_no_index_2    ********************
+
+
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ [
+  {
+    "playerID": "borlato01",
+    "H": "0",
+    "AB": "0",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "breweto01",
+    "H": "4",
+    "AB": "14",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "buddido01",
+    "H": "89",
+    "AB": "339",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "ciscoga01",
+    "H": "1",
+    "AB": "10",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "clintlo01",
+    "H": "13",
+    "AB": "51",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "conlege01",
+    "H": "16",
+    "AB": "73",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "delocik01",
+    "H": "5",
+    "AB": "48",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "earlear01",
+    "H": "0",
+    "AB": "6",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "fornimi01",
+    "H": "5",
+    "AB": "32",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "geigega01",
+    "H": "116",
+    "AB": "499",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "giledo01",
+    "H": "5",
+    "AB": "18",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "ginsbjo01",
+    "H": "6",
+    "AB": "24",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "2"
+  },
+  {
+    "playerID": "greenpu01",
+    "H": "57",
+    "AB": "219",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "hardyca01",
+    "H": "74",
+    "AB": "281",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "harrebi01",
+    "H": "6",
+    "AB": "37",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "hillmda01",
+    "H": "0",
+    "AB": "17",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "jenseja01",
+    "H": "131",
+    "AB": "498",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "malzofr01",
+    "H": "157",
+    "AB": "590",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "monbobi01",
+    "H": "9",
+    "AB": "69",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "muffebi01",
+    "H": "5",
+    "AB": "23",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "nichoch02",
+    "H": "1",
+    "AB": "9",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "nixonru01",
+    "H": "70",
+    "AB": "242",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "pagliji01",
+    "H": "91",
+    "AB": "376",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "repulri01",
+    "H": "7",
+    "AB": "25",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "runnepe01",
+    "H": "114",
+    "AB": "360",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "schilch01",
+    "H": "167",
+    "AB": "646",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "schwado01",
+    "H": "11",
+    "AB": "61",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "stalltr01",
+    "H": "3",
+    "AB": "36",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "wertzvi01",
+    "H": "83",
+    "AB": "317",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "woodwi01",
+    "H": "0",
+    "AB": "3",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "yastrca01",
+    "H": "155",
+    "AB": "583",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  }
+]
+
+
+Elapsed time =  0.06188797950744629
+
+
+********************    Complete test_select_no_index_2    ********************
+
+
+
+
+********************    Starting test_select_with_index_2    ********************
+
+
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    },
+    "teamID_yearID": {
+      "index_name": "teamID_yearID",
+      "columns": [
+        "teamID",
+        "yearID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Building index for playerID in batting...
+Building index for teamID_yearID in batting...
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    },
+    "teamID_yearID": {
+      "index_name": "teamID_yearID",
+      "columns": [
+        "teamID",
+        "yearID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+Name: teamID_yearID, Columns: ['teamID', 'yearID'] 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ [
+  {
+    "playerID": "borlato01",
+    "H": "0",
+    "AB": "0",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "breweto01",
+    "H": "4",
+    "AB": "14",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "buddido01",
+    "H": "89",
+    "AB": "339",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "ciscoga01",
+    "H": "1",
+    "AB": "10",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "clintlo01",
+    "H": "13",
+    "AB": "51",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "conlege01",
+    "H": "16",
+    "AB": "73",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "delocik01",
+    "H": "5",
+    "AB": "48",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "earlear01",
+    "H": "0",
+    "AB": "6",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "fornimi01",
+    "H": "5",
+    "AB": "32",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "geigega01",
+    "H": "116",
+    "AB": "499",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "giledo01",
+    "H": "5",
+    "AB": "18",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "ginsbjo01",
+    "H": "6",
+    "AB": "24",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "2"
+  },
+  {
+    "playerID": "greenpu01",
+    "H": "57",
+    "AB": "219",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "hardyca01",
+    "H": "74",
+    "AB": "281",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "harrebi01",
+    "H": "6",
+    "AB": "37",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "hillmda01",
+    "H": "0",
+    "AB": "17",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "jenseja01",
+    "H": "131",
+    "AB": "498",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "malzofr01",
+    "H": "157",
+    "AB": "590",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "monbobi01",
+    "H": "9",
+    "AB": "69",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "muffebi01",
+    "H": "5",
+    "AB": "23",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "nichoch02",
+    "H": "1",
+    "AB": "9",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "nixonru01",
+    "H": "70",
+    "AB": "242",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "pagliji01",
+    "H": "91",
+    "AB": "376",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "repulri01",
+    "H": "7",
+    "AB": "25",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "runnepe01",
+    "H": "114",
+    "AB": "360",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "schilch01",
+    "H": "167",
+    "AB": "646",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "schwado01",
+    "H": "11",
+    "AB": "61",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "stalltr01",
+    "H": "3",
+    "AB": "36",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "wertzvi01",
+    "H": "83",
+    "AB": "317",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "woodwi01",
+    "H": "0",
+    "AB": "3",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "yastrca01",
+    "H": "155",
+    "AB": "583",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  }
+]
+
+
+Elapsed time =  0.16526007652282715
+
+
+********************    Complete test_select_with_index_2    ********************
+
+
+
+
+********************    Starting test_select_no_index_3    ********************
+
+
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {}
+}
+Index Infromation: 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ [
+  {
+    "playerID": "willste01",
+    "H": "4",
+    "AB": "16",
+    "teamID": "BOS",
+    "yearID": "1959",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "2",
+    "AB": "8",
+    "teamID": "BOS",
+    "yearID": "1960",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "0",
+    "teamID": "BOS",
+    "yearID": "1962",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "5",
+    "AB": "16",
+    "teamID": "CIN",
+    "yearID": "1962",
+    "stint": "2"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "CHA",
+    "yearID": "1965",
+    "stint": "1"
+  }
+]
+
+
+Elapsed time =  0.05917000770568848
+
+
+********************    Complete test_select_no_index_3    ********************
+
+
+
+
+********************    Starting test_select_with_index_3    ********************
+
+
+Batting table metadata = 
+ {
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Building index for playerID in batting...
+Loaded batting table = 
+ Name: batting File: ../Data/Batting.csv 
+Row count: 102816 
+{
+  "definition": {
+    "name": "batting",
+    "path": "../Data/Batting.csv"
+  },
+  "columns": [
+    {
+      "column_name": "playerID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "H",
+      "column_type": "number",
+      "not_null": true
+    },
+    {
+      "column_name": "AB",
+      "column_type": "number",
+      "not_null": false
+    },
+    {
+      "column_name": "teamID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "yearID",
+      "column_type": "text",
+      "not_null": true
+    },
+    {
+      "column_name": "stint",
+      "column_type": "number",
+      "not_null": true
+    }
+  ],
+  "indexes": {
+    "playerID": {
+      "index_name": "playerID",
+      "columns": [
+        "playerID"
+      ],
+      "kind": "INDEX"
+    }
+  }
+}
+Index Infromation: 
+Name: playerID, Columns: ['playerID'] 
+No. of entries: 102816
+Sample rowsplayerID H AB teamID yearID stint
+abercda01 0 4 TRO 1871 1
+addybo01 32 118 RC1 1871 1
+allisar01 40 137 CL1 1871 1
+allisdo01 44 133 WS3 1871 1
+ansonca01 39 120 RC1 1871 1
+... ... ... ... ... ...
+zimmejo02 1 4 DET 2016 1
+zimmery01 93 427 WAS 2016 1
+zobribe01 142 523 CHN 2016 1
+zuninmi01 34 164 SEA 2016 1
+zychto01 0 0 SEA 2016 1
+
+Result = 
+ [
+  {
+    "playerID": "willste01",
+    "H": "4",
+    "AB": "16",
+    "teamID": "BOS",
+    "yearID": "1959",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "2",
+    "AB": "8",
+    "teamID": "BOS",
+    "yearID": "1960",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "BOS",
+    "yearID": "1961",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "0",
+    "teamID": "BOS",
+    "yearID": "1962",
+    "stint": "1"
+  },
+  {
+    "playerID": "willste01",
+    "H": "5",
+    "AB": "16",
+    "teamID": "CIN",
+    "yearID": "1962",
+    "stint": "2"
+  },
+  {
+    "playerID": "willste01",
+    "H": "0",
+    "AB": "2",
+    "teamID": "CHA",
+    "yearID": "1965",
+    "stint": "1"
+  }
+]
+
+
+Elapsed time =  0.06323599815368652
+
+
+********************    Complete test_select_with_index_3    ********************
+
+
+
+
